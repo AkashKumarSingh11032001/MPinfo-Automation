@@ -11,7 +11,7 @@ from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
 
-def VF1(parameter):
+def VF5(parameter):
     
     current_path,level,serialNo,driveCap,firmwareRev,modelNo,HexLine = parameter
 
