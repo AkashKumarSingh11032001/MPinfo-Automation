@@ -100,13 +100,13 @@ unHexify_String = binascii.unhexlify(updatedString)
 # creating new MPinfo.bin file with user inputed updated information
 with open('MPinfo.bin', 'wb') as f:
     f.write(unHexify_String)
-    
 
+
+# getting current Path
 current_path = os.getcwd()+"\\MPinfo.bin"
 current_path = pathConvertion(current_path)
 
 VF1([current_path, "VF1", serialNo, driveCap, firmwareRev, modelNo, [300, 302, 303, 304, 306]])
-
 
 
 # user input PATH :-
