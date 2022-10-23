@@ -42,7 +42,7 @@ current_path = os.getcwd()+"\\MPinfo.bin"
 current_path = pathConvertion(current_path)
 
 PF0([mp_file_path, "PF1", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
-printing("Physical Function [ PF-1 ] Updated!", 1)
+printing("Physical Function [ PF-0 ] Updated!", 1)
 
 VF1([current_path, "VF1", serialNo, driveCap, firmwareRev, modelNo, [300, 302, 303, 304, 306]])
 printing("Virtual Function [ VF-1 ] Updated! ", 1)
