@@ -10,7 +10,7 @@ from supportFunction import updateDriveCap
 from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
-from path import path
+from supportFunction import pathConvertion
 from VF1 import VF1
 
 files = ["mpInfo_bin_log\\MPInfoBuf.bin"]
@@ -99,16 +99,16 @@ updatedString = b''.join(HexList)
 # UnHexlify the bytesString to hexString...
 unHexify_String = binascii.unhexlify(updatedString)
 
-current_path = os.getcwd()
-curr = path(current_path).abspath()
-print(curr)
 
 # creating new MPinfo.bin file with user inputed updated information
 with open('MPinfo.bin', 'wb') as f:
     f.write(unHexify_String)
     
 
-# VF1(current_path = os.getcwd(), level = "VF1", serialNo = serialNo, driveCap = driveCap, firmwareRev = firmwareRev, modelNo = modelNo)
+current_path = os.getcwd()+"\\MPinfo.bin"
+current_path = pathConvertion(current_path)
+
+VF1(current_path = current_path, level = "VF1", serialNo = serialNo, driveCap = driveCap, firmwareRev = firmwareRev, modelNo = modelNo)
 
 
 
