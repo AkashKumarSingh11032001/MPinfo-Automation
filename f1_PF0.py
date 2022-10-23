@@ -11,7 +11,6 @@ from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
 from supportFunction import pathConvertion
-from VF1 import VF1
 
 
 def PF0(parameter):
