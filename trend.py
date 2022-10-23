@@ -108,7 +108,7 @@ with open('MPinfo.bin', 'wb') as f:
 current_path = os.getcwd()+"\\MPinfo.bin"
 current_path = pathConvertion(current_path)
 
-VF1(current_path = current_path, level = "VF1", serialNo = serialNo, driveCap = driveCap, firmwareRev = firmwareRev, modelNo = modelNo)
+VF1([current_path, "VF1", serialNo, driveCap, firmwareRev, modelNo, [300, 302, 303, 304, 306]])
 
 
 

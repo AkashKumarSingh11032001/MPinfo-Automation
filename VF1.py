@@ -11,9 +11,11 @@ from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
 
-def VF1():
+def VF1(parameter):
+    
+    current_path,level,serialNo,driveCap,firmwareRev,modelNo,HexLine = parameter
 
-    files = ["C:\\Users\\1000300665\\Desktop\\FVT\\MPinfo-Automation\\MPinfo.bin"]
+    files = [current_path]
 
 
     filename = files[0]
@@ -27,16 +29,16 @@ def VF1():
     HexList = [Hexify_String[i:i+32] for i in range(0, len(Hexify_String), 32)]
 
 
-    HexLineList = [300, 302, 303, 304, 306]
+    HexLineList = HexLine
     DecimalLineList = [int(str(i), base=16) for i in HexLineList]
 
 
-    # user input:
-    level = "VF1"
-    serialNo = "0000001"
-    driveCap = "256G"
-    firmwareRev = "WS20"
-    modelNo = "SUBNQN1"
+    # # user input:
+    # level = "VF1"
+    # serialNo = "0000001"
+    # driveCap = "256G"
+    # firmwareRev = "WS20"
+    # modelNo = "SUBNQN1"
 
     serial_x = serialUpdate(str=serialNo, level=level)
     drivecap_x = updateDriveCap(cap=driveCap, level=level)
@@ -104,3 +106,5 @@ def VF1():
     # creating new MPinfo.bin file with user inputed updated information
     with open('MPinfo.bin', 'wb') as f:
         f.write(unHexify_String)
+
+# VF1(parameter)
