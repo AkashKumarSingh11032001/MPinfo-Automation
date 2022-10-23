@@ -24,7 +24,7 @@ def VF1(parameter):
 
 
     Hexify_String = binascii.hexlify(content)
-    print(len(Hexify_String))
+    # print(len(Hexify_String))
 
     HexList = [Hexify_String[i:i+32] for i in range(0, len(Hexify_String), 32)]
 
@@ -44,18 +44,18 @@ def VF1(parameter):
     drivecap_x = updateDriveCap(cap=driveCap, level=level)
     firmware_x = updateFirmware(firmware=firmwareRev, date=todaysDate())
     model_x = updateModel(model=modelNo, level=level)
-    print("updated Serial : ({0})".format(serialUpdate(str=serialNo, level=level)))
-    print("upadted driveCap : ({0})".format(
-        updateDriveCap(cap=driveCap, level=level)))
-    print("update FirmwareRev : ({0})".format(
-        updateFirmware(firmware=firmwareRev, date=todaysDate())))
-    print("update Model : ({0})".format(updateModel(model=modelNo, level=level)))
+    # # print("updated Serial : ({0})".format(serialUpdate(str=serialNo, level=level)))
+    # # print("upadted driveCap : ({0})".format(
+    #     updateDriveCap(cap=driveCap, level=level)))
+    # # print("update FirmwareRev : ({0})".format(
+    #     updateFirmware(firmware=firmwareRev, date=todaysDate())))
+    # # print("update Model : ({0})".format(updateModel(model=modelNo, level=level)))
 
     # convert each updated value to hex
     serial_x_hex = stringToHex(serial_x)
     drivecap_x_hex = stringToHex(drivecap_x)
     firmware_x_hex = stringToHex(firmware_x)
-    print(firmware_x_hex)
+    # print(firmware_x_hex)
     model_x_hex = stringToHex(model_x)
 
     # handling extra bits
@@ -73,7 +73,7 @@ def VF1(parameter):
     final = []  # help to update directly to hexLIst.
     for i in range(0, len(temp)):
         ln = len(temp[i])
-        print(ln)
+        # print(ln)
         if i == 3 and ln < 32:
             z = 32 - ln
             final.append("0"*z + temp[i])
@@ -85,9 +85,9 @@ def VF1(parameter):
             else:
                 final.append(temp[i])
 
-    print(final)  # hex not converted to bytes...
+    # print(final)  # hex not converted to bytes...
     byteFinal = [hexToBytes(i) for i in final]
-    print(byteFinal)  # hex converted to bytes...
+    # print(byteFinal)  # hex converted to bytes...
 
 
     # updating HexList with the help of byteFinal...
