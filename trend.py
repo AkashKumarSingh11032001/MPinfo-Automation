@@ -42,8 +42,7 @@ HexList = [Hexify_String[i:i+32] for i in range(0, len(Hexify_String), 32)]
 
 
 HexLineList = [120, 122, 123, 127, 180]
-DecimalLineList = [int(str(i), base=16)
-                   for i in HexLineList]  # [288, 290, 291, 295, 384]
+DecimalLineList = [int(str(i), base=16) for i in HexLineList]  # [288, 290, 291, 295, 384]
 
 
 serial_x = serialUpdate(str=serialNo, level=level)
