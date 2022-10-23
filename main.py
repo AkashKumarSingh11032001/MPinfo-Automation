@@ -41,6 +41,7 @@ modelNo = "SUBNQN1"
 current_path = os.getcwd()+"\\MPinfo.bin"
 current_path = pathConvertion(current_path)
 
+print("")
 PF0([mp_file_path, "PF1", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
 printing("Physical Function [ PF-0 ] Updated!", 1)
 
