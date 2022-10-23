@@ -26,15 +26,17 @@ from f9_VF8 import VF8
 
 mp_file_path = "mpInfo_bin_log\\MPInfoBuf.bin"
 
-serialNo = input("Enter the Serial Number. : \n")
-driveCap = input("Enter the Drive Capacity. : \n")
-firmwareRev = input("Enter the Firmware Revision. : \n")
-modelNo = input("Enter the Model Number. : \n")
+# print(":-> Please enter required information below <-:")
+# print("")
+# serialNo = input("Enter the Serial Number. : \n")
+# driveCap = input("Enter the Drive Capacity. : \n")
+# firmwareRev = input("Enter the Firmware Revision. : \n")
+# modelNo = input("Enter the Model Number. : \n")
 
-# serialNo = "0000001"
-# driveCap = "256G"
-# firmwareRev = "WS20"
-# modelNo = "SUBNQN1"
+serialNo = "0000001"
+driveCap = "256G"
+firmwareRev = "WS20"
+modelNo = "SUBNQN1"
 
 
 # getting current Path
