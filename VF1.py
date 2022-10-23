@@ -13,7 +13,7 @@ from supportFunction import hexToBytes
 
 def VF1():
 
-    files = ["C:\\Users\\1000300665\\Desktop\\FVT\\MPinfo Automation\\MPinfo.bin"]
+    files = ["C:\\Users\\1000300665\\Desktop\\FVT\\MPinfo-Automation\\MPinfo.bin"]
 
 
     filename = files[0]
