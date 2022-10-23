@@ -46,31 +46,31 @@ print("Updating... ")
 print("")
 
 PF0([mp_file_path, "PF1", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
-printing("... Physical Function [ PF-0 ] Updated!", 1)
+printing("-> Physical Function [ PF-0 ] Updated!", 1)
 
 VF1([current_path, "VF1", serialNo, driveCap, firmwareRev, modelNo, [300, 302, 303, 304, 306]])
-printing("... Virtual Function [ VF-1 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-1 ] Updated! ", 1)
 
 VF2([current_path, "VF2", serialNo, driveCap, firmwareRev, modelNo, [320, 322, 323, 324, 326]])
-printing("... Virtual Function [ VF-2 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-2 ] Updated! ", 1)
 
 VF3([current_path, "VF3", serialNo, driveCap, firmwareRev, modelNo, [340, 342, 343, 344, 346]])
-printing("... Virtual Function [ VF-3 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-3 ] Updated! ", 1)
 
 VF4([current_path, "VF4", serialNo, driveCap, firmwareRev, modelNo, [360, 362, 363, 364, 366]])
-printing("... Virtual Function [ VF-4 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-4 ] Updated! ", 1)
 
 VF5([current_path, "VF5", serialNo, driveCap, firmwareRev, modelNo, [380, 382, 383, 384, 386]])
-printing("... Virtual Function [ VF-5 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-5 ] Updated! ", 1)
 
 VF6([current_path, "VF6", serialNo, driveCap, firmwareRev, modelNo, ["3a0", "3a2", "3a3", "3a4", "3a6"]])
-printing("... Virtual Function [ VF-6 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-6 ] Updated! ", 1)
 
 VF7([current_path, "VF7", serialNo, driveCap, firmwareRev, modelNo, ["3c0", "3c2", "3c3", "3c4", "3c6"]])
-printing("... Virtual Function [ VF-7 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-7 ] Updated! ", 1)
 
 VF8([current_path, "VF8", serialNo, driveCap, firmwareRev, modelNo, ["3e0", "3e2", "3e3", "3e4", "3e6"]])
-printing("... Virtual Function [ VF-8 ] Updated! ", 1)
+printing("-> Virtual Function [ VF-8 ] Updated! ", 1)
 
 
 print("")
