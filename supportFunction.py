@@ -1,6 +1,8 @@
 import os
 from datetime import date
 import binascii
+import time
+
 
 def stringRepToZero(str):
     return str.replace(str, "0"*32)
@@ -52,3 +54,8 @@ def hexToBytes(hex):
 def pathConvertion(path):
     supportedPath = path.replace("\\","\\\\")
     return supportedPath
+
+def printing(str,times):
+    print(str)
+    time.sleep(times)
+    return
