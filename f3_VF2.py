@@ -11,7 +11,7 @@ from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
 
-def VF1(parameter):
+def VF2(parameter):
     
     current_path,level,serialNo,driveCap,firmwareRev,modelNo,HexLine = parameter
 
@@ -44,12 +44,6 @@ def VF1(parameter):
     drivecap_x = updateDriveCap(cap=driveCap, level=level)
     firmware_x = updateFirmware(firmware=firmwareRev, date=todaysDate())
     model_x = updateModel(model=modelNo, level=level)
-    # # print("updated Serial : ({0})".format(serialUpdate(str=serialNo, level=level)))
-    # # print("upadted driveCap : ({0})".format(
-    #     updateDriveCap(cap=driveCap, level=level)))
-    # # print("update FirmwareRev : ({0})".format(
-    #     updateFirmware(firmware=firmwareRev, date=todaysDate())))
-    # # print("update Model : ({0})".format(updateModel(model=modelNo, level=level)))
 
     # convert each updated value to hex
     serial_x_hex = stringToHex(serial_x)

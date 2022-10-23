@@ -14,6 +14,7 @@ from supportFunction import hexToBytes
 from supportFunction import pathConvertion
 from f1_PF0 import PF0
 from f2_VF1 import VF1
+from f3_VF2 import VF2
 
 
 mp_file_path = "mpInfo_bin_log\\MPInfoBuf.bin"
