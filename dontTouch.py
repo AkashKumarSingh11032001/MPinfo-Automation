@@ -48,8 +48,8 @@ def updateModel(model, level):
 
 def hexToBytes(hex):
     x = str(hex)
-    x = x.replace("\\x",'')
-    x = str.encode(x[0:len(x)])   
+    x = x.replace("\\x", '')
+    x = str.encode(x[0:len(x)])
     return x
 
 
@@ -112,14 +112,14 @@ if len(drivecap_x_hex) > 32:
     r = drivecap_x_hex
     drivecap_x_hex = r[:32]
     extra_x_hex = r[32:] + extra_x_hex[left:]
-    
+
 # bytechnage_extra = bytes.fromhex(extra_x_hex)
 # bytechnage_drive = bytes.fromhex(drivecap_x_hex)
 # print(bytechnage_extra)
 # print(bytechnage_drive)
 
 temp = [serial_x_hex, drivecap_x_hex, extra_x_hex, model_x_hex, firmware_x_hex]
-final = [] # help to update directly to hexLIst.
+final = []  # help to update directly to hexLIst.
 for i in range(0, len(temp)):
     ln = len(temp[i])
     print(ln)
@@ -127,12 +127,12 @@ for i in range(0, len(temp)):
         z = 32 - ln
         final.append(temp[i] + "0"*z)
     else:
-         final.append(temp[i])
-    
-print(final) # hex not converted to bytes...
+        final.append(temp[i])
+
+print(final)  # hex not converted to bytes...
 
 byteFinal = [hexToBytes(i) for i in final]
-print(byteFinal) # hex converted to bytes...
+print(byteFinal)  # hex converted to bytes...
 
 # x = str(byteFinal[0])
 # x = x.replace("\\x",'')
@@ -146,7 +146,7 @@ j = 0
 for i in DecimalLineList:
     HexList[i] = byteFinal[j]
     j = j + 1
-    
+
 # print(HexList)
 for i in DecimalLineList:
     print(len(HexList[i]))
@@ -154,7 +154,7 @@ for i in DecimalLineList:
 updatedString = b''.join(HexList)
 
 unHexify_String = binascii.unhexlify(updatedString)
-    
+
 print(len(updatedString))
 print(unHexify_String)
 
