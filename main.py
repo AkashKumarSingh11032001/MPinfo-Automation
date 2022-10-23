@@ -20,6 +20,7 @@ from f5_VF4 import VF4
 from f6_VF5 import VF5
 from f7_VF6 import VF6
 from f8_VF7 import VF7
+from f9_VF8 import VF8
 
 
 mp_file_path = "mpInfo_bin_log\\MPInfoBuf.bin"
