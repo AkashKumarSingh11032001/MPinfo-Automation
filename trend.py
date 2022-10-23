@@ -29,9 +29,6 @@ driveCap = "256G"
 firmwareRev = "WS20"
 modelNo = "SUBNQN1"
 
-# def main():
-#     return [path,level,serialNo,driveCap,firmwareRev,modelNo]
-
 
 filename = files[0]
 with open(filename, 'rb') as f:
