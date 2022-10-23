@@ -11,27 +11,24 @@ from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
 
+
 def VF4(parameter):
-    
-    current_path,level,serialNo,driveCap,firmwareRev,modelNo,HexLine = parameter
+
+    current_path, level, serialNo, driveCap, firmwareRev, modelNo, HexLine = parameter
 
     files = [current_path]
-
 
     filename = files[0]
     with open(filename, 'rb') as f:
         content = f.read()
-
 
     Hexify_String = binascii.hexlify(content)
     # print(len(Hexify_String))
 
     HexList = [Hexify_String[i:i+32] for i in range(0, len(Hexify_String), 32)]
 
-
     HexLineList = HexLine
     DecimalLineList = [int(str(i), base=16) for i in HexLineList]
-
 
     # # user input:
     # level = "VF1"
@@ -62,8 +59,8 @@ def VF4(parameter):
         drivecap_x_hex = r[:32]
         extra_x_hex = r[32:] + extra_x_hex[left:]
 
-
-    temp = [serial_x_hex, drivecap_x_hex, extra_x_hex, firmware_x_hex, model_x_hex]
+    temp = [serial_x_hex, drivecap_x_hex,
+            extra_x_hex, firmware_x_hex, model_x_hex]
     final = []  # help to update directly to hexLIst.
     for i in range(0, len(temp)):
         ln = len(temp[i])
@@ -71,8 +68,8 @@ def VF4(parameter):
         if i == 3 and ln < 32:
             z = 32 - ln
             final.append("0"*z + temp[i])
-        
-        if i != 3:    
+
+        if i != 3:
             if ln < 32:
                 z = 32 - ln
                 final.append(temp[i] + "0"*z)
@@ -82,7 +79,6 @@ def VF4(parameter):
     # print(final)  # hex not converted to bytes...
     byteFinal = [hexToBytes(i) for i in final]
     # print(byteFinal)  # hex converted to bytes...
-
 
     # updating HexList with the help of byteFinal...
     j = 0
@@ -95,7 +91,6 @@ def VF4(parameter):
 
     # UnHexlify the bytesString to hexString...
     unHexify_String = binascii.unhexlify(updatedString)
-
 
     # creating new MPinfo.bin file with user inputed updated information
     with open('MPinfo.bin', 'wb') as f:
