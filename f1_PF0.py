@@ -25,7 +25,7 @@ def PF0(parameter):
 
 
     Hexify_String = binascii.hexlify(content)
-    print(len(Hexify_String))
+    # print(len(Hexify_String))
 
     HexList = [Hexify_String[i:i+32] for i in range(0, len(Hexify_String), 32)]
 
@@ -60,16 +60,16 @@ def PF0(parameter):
     final = []  # help to update directly to hexLIst.
     for i in range(0, len(temp)):
         ln = len(temp[i])
-        print(ln)
+        # print(ln)
         if ln < 32:
             z = 32 - ln
             final.append(temp[i] + "0"*z)
         else:
             final.append(temp[i])
 
-    print(final)  # hex not converted to bytes...
+    # print(final)  # hex not converted to bytes...
     byteFinal = [hexToBytes(i) for i in final]
-    print(byteFinal)  # hex converted to bytes...
+    # print(byteFinal)  # hex converted to bytes...
 
 
     # updating HexList with the help of byteFinal...
