@@ -11,8 +11,8 @@ from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
 from supportFunction import pathConvertion
-from VF1 import VF1
-from trend import PF0
+from f1_PF0 import PF0
+from f2_VF1 import VF1
 
 
 file_path = "mpInfo_bin_log\\MPInfoBuf.bin"
