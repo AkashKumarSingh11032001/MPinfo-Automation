@@ -48,3 +48,7 @@ def hexToBytes(hex):
     x = x.replace("\\x", '')
     x = str.encode(x[0:len(x)])
     return x
+
+def pathConvertion(path):
+    supportedPath = path.replace("\\","\\\\")
+    return supportedPath
