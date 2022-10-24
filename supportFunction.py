@@ -55,7 +55,7 @@ def pathConvertion(path):
     supportedPath = path.replace("\\","\\\\")
     return supportedPath
 
-def printing(str,times):
+def status(str,times):
     print(str)
     time.sleep(times)
     return
