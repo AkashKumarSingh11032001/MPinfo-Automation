@@ -44,9 +44,9 @@ current_path = os.getcwd()+"\\MPinfo.bin"
 current_path = pathConvertion(current_path)
 
 print("")
-print("Creating new MPInfo.bin file... ")
-print("")
-print("Updating MPInfo.bin... ")
+status("Creating new MPInfo.bin file... ", 1)
+status("MPInfo.bin file Created!", 1)
+status("Updating MPInfo.bin... ", 1)
 print("")
 
 PF0([mp_file_path, "PF1", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
