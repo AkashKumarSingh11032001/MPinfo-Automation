@@ -44,7 +44,9 @@ current_path = os.getcwd()+"\\MPinfo.bin"
 current_path = pathConvertion(current_path)
 
 print("")
-print("Updating... ")
+print("Creating new MPInfo.bin file... ")
+print("")
+print("Updating MPInfo.bin... ")
 print("")
 
 PF0([mp_file_path, "PF1", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
@@ -76,4 +78,4 @@ status("-> Virtual Function [ VF-8 ] Updated! ", 1)
 
 
 print("")
-print("*** New MPinfo.bin Created and Updated Successfully!!! *** ")
+print("*** New MPInfo.bin Created and Updated Successfully!!! *** ")

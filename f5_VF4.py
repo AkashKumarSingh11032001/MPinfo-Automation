@@ -93,7 +93,7 @@ def VF4(parameter):
     unHexify_String = binascii.unhexlify(updatedString)
 
     # creating new MPinfo.bin file with user inputed updated information
-    with open('MPinfo.bin', 'wb') as f:
+    with open('MPInfo.bin', 'wb') as f:
         f.write(unHexify_String)
 
 
