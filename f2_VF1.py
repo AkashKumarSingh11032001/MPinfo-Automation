@@ -30,13 +30,6 @@ def VF1(parameter):
     HexLineList = HexLine
     DecimalLineList = [int(str(i), base=16) for i in HexLineList]
 
-    # # user input:
-    # level = "VF1"
-    # serialNo = "0000001"
-    # driveCap = "256G"
-    # firmwareRev = "WS20"
-    # modelNo = "SUBNQN1"
-
     serial_x = serialUpdate(str=serialNo, level=level)
     drivecap_x = updateDriveCap(cap=driveCap, level=level)
     firmware_x = updateFirmware(firmware=firmwareRev, date=todaysDate())
