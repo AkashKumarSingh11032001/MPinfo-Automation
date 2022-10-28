@@ -26,6 +26,7 @@ from f9_VF8 import VF8
 
 mp_file_path = "mpInfo_bin_log\\MPInfoBuf.bin"
 
+print("")
 print(":-> Please enter required information below <-:")
 print("")
 serialNo = input("Enter the Serial Number. : ")
@@ -49,7 +50,7 @@ status("MPInfo.bin file Created!", 1)
 status("Updating MPInfo.bin... ", 1)
 print("")
 
-PF0([mp_file_path, "PF1", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
+PF0([mp_file_path, "PF0", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
 status("<> Physical Function [ PF-0 ] Updated!", 1)
 
 VF1([current_path, "VF1", serialNo, driveCap, firmwareRev, modelNo, [300, 302, 303, 304, 306]])
