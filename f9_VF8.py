@@ -14,7 +14,7 @@ from supportFunction import hexToBytes
 
 def VF8(parameter):
 
-    current_path, level, serialNo, driveCap, firmwareRev, HexLine = parameter
+    current_path, level, serialNo, driveCap, firmwareRev, HexLine, new_mp_file_name = parameter
 
     files = [current_path]
 
@@ -99,7 +99,7 @@ def VF8(parameter):
     unHexify_String = binascii.unhexlify(updatedString)
 
     # creating new MPinfo.bin file with user inputed updated information
-    with open('MPxinfo.bin', 'wb') as f:
+    with open(new_mp_file_name, 'wb') as f:
         f.write(unHexify_String)
 
 

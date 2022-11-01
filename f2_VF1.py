@@ -16,7 +16,7 @@ from supportFunction import pathConvertion
 
 def VF1(parameter):
 
-    current_path, level, serialNo, driveCap, firmwareRev, HexLine = parameter
+    current_path, level, serialNo, driveCap, firmwareRev, HexLine, new_mp_file_name = parameter
 
     files = [current_path]
 
@@ -102,7 +102,7 @@ def VF1(parameter):
     # print(len(unHexify_String))
 
     # creating new MPinfo.bin file with user inputed updated information
-    with open('MPxinfo.bin', 'wb') as f:
+    with open(new_mp_file_name, 'wb') as f:
         f.write(unHexify_String)
 
 

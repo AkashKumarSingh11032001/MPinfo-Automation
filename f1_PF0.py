@@ -12,12 +12,13 @@ from supportFunction import updateModel
 from supportFunction import hexToBytes
 from supportFunction import pathConvertion
 from supportFunction import status
+    
 
 
 
 def PF0(parameter):
 
-    path, level, serialNo, driveCap, firmwareRev, HexLine = parameter
+    path, level, serialNo, driveCap, firmwareRev, HexLine, new_mp_file_name = parameter
 
     files = [path]
 
@@ -100,6 +101,5 @@ def PF0(parameter):
     # print(unHexify_String)
 
     # creating new MPinfo.bin file with user inputed updated information
-    with open('MPxinfo.bin', 'wb') as f:
+    with open(new_mp_file_name, 'wb') as f:
         f.write(unHexify_String)
-
