@@ -11,33 +11,33 @@ from supportFunction import updateFirmware
 from supportFunction import updateModel
 from supportFunction import hexToBytes
 from supportFunction import pathConvertion
+from supportFunction import status
+
 
 
 def PF0(parameter):
-    
-    path,level,serialNo,driveCap,firmwareRev,modelNo,HexLine = parameter
-    
+
+    path, level, serialNo, driveCap, firmwareRev, HexLine = parameter
+
     files = [path]
 
     filename = files[0]
     with open(filename, 'rb') as f:
         content = f.read()
 
-
     Hexify_String = binascii.hexlify(content)
-    # print(len(Hexify_String))
+    # print("length of hex string {0}".format(len(Hexify_String)))
 
     HexList = [Hexify_String[i:i+32] for i in range(0, len(Hexify_String), 32)]
 
-
     HexLineList = HexLine
-    DecimalLineList = [int(str(i), base=16) for i in HexLineList]  # [288, 290, 291, 295, 384]
-
+    DecimalLineList = [int(str(i), base=16)
+                       for i in HexLineList]  # [288, 290, 291, 295, 384]
 
     serial_x = serialUpdate(str=serialNo, level=level)
-    drivecap_x = updateDriveCap(cap=driveCap, level=level)
+    drivecap_x = updateDriveCap(cap=driveCap)
     firmware_x = updateFirmware(firmware=firmwareRev, date=todaysDate())
-    model_x = updateModel(model=modelNo, level=level)
+    model_x = updateModel(serial=serialNo)
 
     # convert each updated value to hex
     serial_x_hex = stringToHex(serial_x)
@@ -45,7 +45,7 @@ def PF0(parameter):
     firmware_x_hex = stringToHex(firmware_x)
     model_x_hex = stringToHex(model_x)
 
-    # handling extra bits
+    # handling extra bits --> driveCaps
     extra_byte = "\x00"*32
     extra_x_hex = stringToHex(extra_byte)
 
@@ -55,8 +55,21 @@ def PF0(parameter):
         drivecap_x_hex = r[:32]
         extra_x_hex = r[32:] + extra_x_hex[left:]
 
+    # handling extra bits --> modelHex
+    model_x_hex_2 = stringToHex("\00"*32)
+    model_x_hex_3 = stringToHex("\00"*32)
+    model_x_hex_4 = stringToHex("\00"*32)
 
-    temp = [serial_x_hex, drivecap_x_hex, extra_x_hex, firmware_x_hex, model_x_hex]
+    if len(model_x_hex) > 32:  # LEN(modelHex) = 112
+        temp = model_x_hex
+        model_x_hex = temp[:32]
+        model_x_hex_2 = temp[32:64]
+        model_x_hex_3 = temp[64:96]
+        left = len(model_x_hex) - 96 - 16
+        model_x_hex_4 = temp[96:]
+
+    temp = [serial_x_hex, drivecap_x_hex, extra_x_hex, firmware_x_hex,
+            model_x_hex, model_x_hex_2, model_x_hex_3, model_x_hex_4]
     final = []  # help to update directly to hexLIst.
     for i in range(0, len(temp)):
         ln = len(temp[i])
@@ -71,7 +84,6 @@ def PF0(parameter):
     byteFinal = [hexToBytes(i) for i in final]
     # print(byteFinal)  # hex converted to bytes...
 
-
     # updating HexList with the help of byteFinal...
     j = 0
     for i in DecimalLineList:
@@ -83,10 +95,11 @@ def PF0(parameter):
 
     # UnHexlify the bytesString to hexString...
     unHexify_String = binascii.unhexlify(updatedString)
+    
+    # print(len(unHexify_String))
+    # print(unHexify_String)
 
-    print(unHexify_String)
     # creating new MPinfo.bin file with user inputed updated information
-    with open('MPInfo.bin', 'wb') as f:
+    with open('MPxinfo.bin', 'wb') as f:
         f.write(unHexify_String)
-
 
