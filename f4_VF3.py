@@ -14,7 +14,7 @@ from supportFunction import hexToBytes
 
 def VF3(parameter):
 
-    current_path, level, serialNo, driveCap, firmwareRev, modelNo, HexLine = parameter
+    current_path, level, serialNo, driveCap, firmwareRev, HexLine = parameter
 
     files = [current_path]
 
@@ -38,10 +38,10 @@ def VF3(parameter):
     # modelNo = "SUBNQN1"
 
     serial_x = serialUpdate(str=serialNo, level=level)
-    drivecap_x = updateDriveCap(cap=driveCap, level=level)
+    drivecap_x = updateDriveCap(cap=driveCap)
     firmware_x = updateFirmware(firmware=firmwareRev, date=todaysDate())
-    model_x = updateModel(model=modelNo, level=level)
-
+    model_x = updateModel(serial=serialNo)
+    
     # convert each updated value to hex
     serial_x_hex = stringToHex(serial_x)
     drivecap_x_hex = stringToHex(drivecap_x)
@@ -58,9 +58,22 @@ def VF3(parameter):
         r = drivecap_x_hex
         drivecap_x_hex = r[:32]
         extra_x_hex = r[32:] + extra_x_hex[left:]
+        
+    # handling extra bits --> modelHex
+    model_x_hex_2 = stringToHex("\00"*32)
+    model_x_hex_3 = stringToHex("\00"*32)
+    model_x_hex_4 = stringToHex("\00"*32)
 
-    temp = [serial_x_hex, drivecap_x_hex,
-            extra_x_hex, firmware_x_hex, model_x_hex]
+    if len(model_x_hex) > 32:  # LEN(modelHex) = 112
+        temp = model_x_hex
+        model_x_hex = temp[:32]
+        model_x_hex_2 = temp[32:64]
+        model_x_hex_3 = temp[64:96]
+        left = len(model_x_hex) - 96 - 16
+        model_x_hex_4 = temp[96:]
+
+    temp = [serial_x_hex, drivecap_x_hex, extra_x_hex, firmware_x_hex,
+            model_x_hex, model_x_hex_2, model_x_hex_3, model_x_hex_4]
     final = []  # help to update directly to hexLIst.
     for i in range(0, len(temp)):
         ln = len(temp[i])
@@ -93,6 +106,6 @@ def VF3(parameter):
     unHexify_String = binascii.unhexlify(updatedString)
 
     # creating new MPinfo.bin file with user inputed updated information
-    with open('MPInfo.bin', 'wb') as f:
+    with open('MPxinfo.bin', 'wb') as f:
         f.write(unHexify_String)
 
