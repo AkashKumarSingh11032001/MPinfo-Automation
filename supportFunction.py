@@ -10,7 +10,7 @@ def stringRepToZero(str):
 
 def todaysDate():
     today = date.today()
-    return "{0}{1}".format(today.day, today.month)
+    return "{1}{0}".format(today.day, today.month)
 
 
 def stringToHex(str):
@@ -25,13 +25,13 @@ def HexToAscii(str):
 
 
 def serialUpdate(str, level):
-    newSerial = "S{0}{1}".format(str, level)
+    newSerial = "{1}{0}".format(str, level)
     return newSerial[:]
 
 
-def updateDriveCap(cap, level):
-    str = "WDSSDATPOCM"
-    newDriveCap = "{0}{1}{2}".format(str, cap, level)
+def updateDriveCap(cap):
+    str = "WDSSDATPCM"
+    newDriveCap = "{0}{1}".format(str, cap)
     return newDriveCap[:]
 
 
@@ -40,8 +40,9 @@ def updateFirmware(firmware, date):
     return newFirmware[:]
 
 
-def updateModel(model, level):
-    newModel = "{0}{1}".format(model, level)
+def updateModel(serial):
+    str = "nqn.2018-01.com.wdc:guid:E8238FA6BF53-0001-001B44"
+    newModel = "{0}{1}".format(str,serial)
     return newModel[:]
 
 
