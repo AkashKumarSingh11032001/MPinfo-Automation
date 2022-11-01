@@ -32,12 +32,12 @@ print("")
 serialNo = input("Enter the Serial Number. : ")
 driveCap = input("Enter the Drive Capacity. : ")
 firmwareRev = input("Enter the Firmware Revision. : ")
-modelNo = input("Enter the Model Number. : ")
+
 
 # serialNo = "0000001"
 # driveCap = "256G"
 # firmwareRev = "WS20"
-# modelNo = "SUBNQN1"
+
 
 
 # getting current Path
@@ -50,31 +50,31 @@ status("MPInfo.bin file Created!", 1)
 status("Updating MPInfo.bin... ", 1)
 print("")
 
-PF0([mp_file_path, "PF0", serialNo, driveCap, firmwareRev, modelNo, [120, 122, 123, 127, 180]])
+PF0([mp_file_path, "PF0", serialNo, driveCap, firmwareRev, [120, 122, 123, 127, 180, 181, 182, 183]])
 status("<> Physical Function [ PF-0 ] Updated!", 1)
 
-VF1([current_path, "VF1", serialNo, driveCap, firmwareRev, modelNo, [300, 302, 303, 304, 306]])
+VF1([current_path, "VF1", serialNo, driveCap, firmwareRev, [300, 302, 303, 304, 306, 307, 308, 309]])
 status("<> Virtual Function  [ VF-1 ] Updated! ", 1)
 
-VF2([current_path, "VF2", serialNo, driveCap, firmwareRev, modelNo, [320, 322, 323, 324, 326]])
+VF2([current_path, "VF2", serialNo, driveCap, firmwareRev, [320, 322, 323, 324, 326, 327, 328, 329]])
 status("<> Virtual Function  [ VF-2 ] Updated! ", 1)
 
-VF3([current_path, "VF3", serialNo, driveCap, firmwareRev, modelNo, [340, 342, 343, 344, 346]])
+VF3([current_path, "VF3", serialNo, driveCap, firmwareRev, [340, 342, 343, 344, 346, 347, 348, 349]])
 status("<> Virtual Function  [ VF-3 ] Updated! ", 1)
 
-VF4([current_path, "VF4", serialNo, driveCap, firmwareRev, modelNo, [360, 362, 363, 364, 366]])
+VF4([current_path, "VF4", serialNo, driveCap, firmwareRev, [360, 362, 363, 364, 366, 367, 368, 369]])
 status("<> Virtual Function  [ VF-4 ] Updated! ", 1)
 
-VF5([current_path, "VF5", serialNo, driveCap, firmwareRev, modelNo, [380, 382, 383, 384, 386]])
+VF5([current_path, "VF5", serialNo, driveCap, firmwareRev, [380, 382, 383, 384, 386, 387, 388, 389]])
 status("<> Virtual Function  [ VF-5 ] Updated! ", 1)
 
-VF6([current_path, "VF6", serialNo, driveCap, firmwareRev, modelNo, ["3a0", "3a2", "3a3", "3a4", "3a6"]])
+VF6([current_path, "VF6", serialNo, driveCap, firmwareRev, ["3a0", "3a2", "3a3", "3a4", "3a6", "3a7", "3a8", "3a9"]])
 status("<> Virtual Function  [ VF-6 ] Updated! ", 1)
 
-VF7([current_path, "VF7", serialNo, driveCap, firmwareRev, modelNo, ["3c0", "3c2", "3c3", "3c4", "3c6"]])
+VF7([current_path, "VF7", serialNo, driveCap, firmwareRev, ["3c0", "3c2", "3c3", "3c4", "3c6", "3c7", "3c8", "3c9"]])
 status("<> Virtual Function  [ VF-7 ] Updated! ", 1)
 
-VF8([current_path, "VF8", serialNo, driveCap, firmwareRev, modelNo, ["3e0", "3e2", "3e3", "3e4", "3e6"]])
+VF8([current_path, "VF8", serialNo, driveCap, firmwareRev, ["3e0", "3e2", "3e3", "3e4", "3e6", "3e7", "3e8", "3e9"]])
 status("<> Virtual Function  [ VF-8 ] Updated! ", 1)
 
 

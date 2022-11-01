@@ -84,7 +84,7 @@ def PF0(parameter):
     # UnHexlify the bytesString to hexString...
     unHexify_String = binascii.unhexlify(updatedString)
 
-
+    print(unHexify_String)
     # creating new MPinfo.bin file with user inputed updated information
     with open('MPInfo.bin', 'wb') as f:
         f.write(unHexify_String)
